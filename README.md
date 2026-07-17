@@ -34,9 +34,13 @@ Output is in `out/`.
 
 ## Deploy to GitHub Pages
 
-1. Repo **Settings → Pages → Build and deployment → Source: GitHub Actions**
-2. Push to `main` (or run the **Deploy to GitHub Pages** workflow manually)
-3. Site URL: `https://knkhayam.github.io/hamza_driving_academy/`
+**Required once** (the deploy job returns 404 until this is done):
+
+1. Open [Settings → Pages](https://github.com/knkhayam/hamza_driving_academy/settings/pages)
+2. Under **Build and deployment → Source**, choose **GitHub Actions** (not “Deploy from a branch”)
+3. Save if prompted
+
+Then push to `main` (or re-run the **Deploy to GitHub Pages** workflow). Site URL: `https://knkhayam.github.io/hamza_driving_academy/`
 
 The workflow (`.github/workflows/deploy-pages.yml`) builds with:
 
