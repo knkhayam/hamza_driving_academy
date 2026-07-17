@@ -42,7 +42,7 @@ Output is in `out/`.
 
 Then push to `main` (or re-run the **Deploy to GitHub Pages** workflow). Site URL: `https://knkhayam.github.io/hamza_driving_academy/`
 
-The workflow (`.github/workflows/deploy-pages.yml`) builds with:
+The workflow (`.github/workflows/nextjs.yml`) builds with the public site env vars (`NEXT_PUBLIC_*`), including:
 
 | Env | Value |
 |---|---|
