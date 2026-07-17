@@ -28,6 +28,7 @@ jobs:
           cache: npm
 
       - name: Setup Pages
+        id: pages
         uses: actions/configure-pages@v5
 
       - name: Install dependencies
@@ -36,9 +37,9 @@ jobs:
       - name: Build with Next.js
         run: npm run build
         env:
-          # Project Pages URL is /<repo> — must match withBasePath() in the app
-          NEXT_PUBLIC_BASE_PATH: /hamza_driving_academy
-          NEXT_PUBLIC_SITE_URL: https://knkhayam.github.io/hamza_driving_academy
+          # From configure-pages so project Pages base path stays correct
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          NEXT_PUBLIC_SITE_URL: ${{ steps.pages.outputs.base_url }}
           NEXT_PUBLIC_SITE_NAME: Hamza Driving Academy
           NEXT_PUBLIC_TAGLINE: Learn Today, Drive Tomorrow, Succeed Forever
           NEXT_PUBLIC_CTA_TEXT: Call now to book your lessons

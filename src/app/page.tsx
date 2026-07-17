@@ -1,9 +1,12 @@
-import { basePath } from "../lib/config";
 import { defaultLocale } from "../lib/i18n/locales";
 
-/** Root `/` → default locale. Uses basePath so GitHub project Pages works. */
+/**
+ * Root → default locale.
+ * Use a relative path so GitHub project Pages keeps /hamza_driving_academy/
+ * (absolute "/en/" would jump to github.io/en/).
+ */
 export default function RootPage() {
-  const target = `${basePath}/${defaultLocale}/`;
+  const target = `./${defaultLocale}/`;
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-brand-black p-8 text-white">

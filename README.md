@@ -42,12 +42,7 @@ Output is in `out/`.
 
 Then push to `main` (or re-run the **Deploy to GitHub Pages** workflow). Site URL: `https://knkhayam.github.io/hamza_driving_academy/`
 
-The workflow (`.github/workflows/nextjs.yml`) builds with the public site env vars (`NEXT_PUBLIC_*`), including:
-
-| Env | Value |
-|---|---|
-| `NEXT_PUBLIC_BASE_PATH` | `/hamza_driving_academy` |
-| `NEXT_PUBLIC_SITE_URL` | `https://knkhayam.github.io/hamza_driving_academy` |
+The workflow (`.github/workflows/nextjs.yml`) builds with public site env vars. `NEXT_PUBLIC_BASE_PATH` / `NEXT_PUBLIC_SITE_URL` come from `actions/configure-pages` so the project Pages path stays correct.
 
 Custom domain later: point DNS at GitHub Pages, then you can clear `NEXT_PUBLIC_BASE_PATH` if the site is served from the domain root.
 
