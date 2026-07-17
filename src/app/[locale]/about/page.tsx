@@ -3,7 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { CtaButtons } from "../../../components/CtaButtons";
 import { PageHero } from "../../../components/PageHero";
-import { siteConfig } from "../../../lib/config";
+import { siteConfig, withBasePath } from "../../../lib/config";
 import { getDictionary } from "../../../lib/i18n/get-dictionary";
 import { isLocale, locales } from "../../../lib/i18n/locales";
 
@@ -65,7 +65,7 @@ export default async function AboutPage({ params }: PageProps) {
           </div>
           <div className="relative min-h-[320px] overflow-hidden bg-brand-black">
             <Image
-              src="/images/hda-flyer-car.png"
+              src={withBasePath("/images/hda-flyer-car.png")}
               alt={`${siteConfig.name} car`}
               fill
               className="object-cover"

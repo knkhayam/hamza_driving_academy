@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { siteConfig } from "../lib/config";
+import { siteConfig, withBasePath } from "../lib/config";
 import type { Dictionary } from "../lib/i18n/dictionaries/en";
 import { CtaButtons } from "./CtaButtons";
 
@@ -11,7 +11,7 @@ export function HomeHero({ dict }: HomeHeroProps) {
   return (
     <section className="relative min-h-[min(92vh,880px)] overflow-hidden bg-brand-black text-white">
       <Image
-        src="/images/hda-flyer-car2.png"
+        src={withBasePath("/images/hda-flyer-car2.png")}
         alt={`${siteConfig.name} training car in ${siteConfig.city}`}
         fill
         priority
@@ -27,7 +27,7 @@ export function HomeHero({ dict }: HomeHeroProps) {
       <div className="container relative z-10 flex min-h-[min(92vh,880px)] flex-col justify-end pb-16 pt-28 sm:justify-center sm:pb-20">
         <div className="max-w-2xl">
           <Image
-            src="/images/logo.png"
+            src={withBasePath("/images/logo.png")}
             alt={siteConfig.name}
             width={120}
             height={120}

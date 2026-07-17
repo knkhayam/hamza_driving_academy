@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Barlow, Noto_Nastaliq_Urdu, Oswald } from "next/font/google";
+import { withBasePath } from "../lib/config";
 import "./globals.css";
 
 const oswald = Oswald({
@@ -24,17 +25,26 @@ const notoNastaliq = Noto_Nastaliq_Urdu({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://hamza-driving-academy.pages.dev",
+    process.env.NEXT_PUBLIC_SITE_URL ||
+      "https://knkhayam.github.io/hamza_driving_academy",
   ),
   icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: withBasePath("/favicon.ico") },
+      {
+        url: withBasePath("/favicon-16x16.png"),
+        sizes: "16x16",
+        type: "image/png",
+      },
+      {
+        url: withBasePath("/favicon-32x32.png"),
+        sizes: "32x32",
+        type: "image/png",
+      },
     ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+    apple: [{ url: withBasePath("/apple-touch-icon.png"), sizes: "180x180" }],
   },
-  manifest: "/site.webmanifest",
+  manifest: withBasePath("/site.webmanifest"),
 };
 
 export default function RootLayout({

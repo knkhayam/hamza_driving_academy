@@ -1,8 +1,9 @@
+import { basePath } from "../lib/config";
 import { defaultLocale } from "../lib/i18n/locales";
 
-/** Cloudflare Pages also redirects via public/_redirects */
+/** Root `/` → default locale. Uses basePath so GitHub project Pages works. */
 export default function RootPage() {
-  const target = `/${defaultLocale}/`;
+  const target = `${basePath}/${defaultLocale}/`;
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-brand-black p-8 text-white">

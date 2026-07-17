@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import type { Dictionary } from "../lib/i18n/dictionaries/en";
 import type { Locale } from "../lib/i18n/locales";
-import { siteConfig } from "../lib/config";
+import { siteConfig, withBasePath } from "../lib/config";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
 type HeaderProps = {
@@ -30,7 +30,7 @@ export function Header({ locale, dict }: HeaderProps) {
       <div className="container flex items-center justify-between gap-4 py-3">
         <Link href={`${base}/`} className="flex items-center gap-3 shrink-0">
           <Image
-            src="/images/logo.png"
+            src={withBasePath("/images/logo.png")}
             alt={siteConfig.name}
             width={56}
             height={56}

@@ -11,12 +11,24 @@ function envList(key: string, fallback: string[]): string[] {
     .filter(Boolean);
 }
 
+/** Must match next.config `basePath` (set NEXT_PUBLIC_BASE_PATH in GitHub Actions). */
+export const basePath = (process.env.NEXT_PUBLIC_BASE_PATH || "").replace(
+  /\/$/,
+  "",
+);
+
+/** Prefix public asset paths for GitHub project Pages (unoptimized images skip auto basePath). */
+export function withBasePath(path: string): string {
+  if (!path.startsWith("/") || path.startsWith("//")) return path;
+  return `${basePath}${path}`;
+}
+
 export const siteConfig = {
   name: env("NEXT_PUBLIC_SITE_NAME", "Hamza Driving Academy"),
-  url: env("NEXT_PUBLIC_SITE_URL", "https://hamza-driving-academy.pages.dev").replace(
-    /\/$/,
-    "",
-  ),
+  url: env(
+    "NEXT_PUBLIC_SITE_URL",
+    "https://knkhayam.github.io/hamza_driving_academy",
+  ).replace(/\/$/, ""),
   tagline: env(
     "NEXT_PUBLIC_TAGLINE",
     "Learn Today, Drive Tomorrow, Succeed Forever",
